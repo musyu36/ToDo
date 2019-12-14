@@ -15,7 +15,8 @@ class CreateFoldersTable extends Migration
     {
         // foldersテーブルにid,title,時刻を格納
         Schema::create('folders', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('title', 20);
             $table->timestamps();
         });
     }
