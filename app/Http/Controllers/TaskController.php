@@ -21,7 +21,9 @@ class TaskController extends Controller
         // 選ばれたフォルダに紐づくタスクを取得する
         // Tasks::where('folder_id', '=', $current_folder->id)->get();と同値
         // where(カラム名,比較する値),whereだけではSQL生成のみなのでのみなのでgetメソッドを呼び出す必要あり
-        $tasks = Task::where('folder_id', $current_folder->id)->get();
+        // $tasks = Task::where('folder_id', $current_folder->id)->get();
+        // Folderクラスのtasksメソッドで全タスクを取得するように変更↓
+        $tasks = $current_folder->tasks()->get();
 
         // view(テンプレートファイル名, キーがテンプレート側で参照する変数名)でテンプレートに取得したデータを渡す。
         // どのファイルを表示するか？どの値をそれに渡すか？
