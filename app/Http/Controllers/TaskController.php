@@ -26,7 +26,7 @@ class TaskController extends Controller
         $tasks = $current_folder->tasks()->get();
 
         // view(テンプレートファイル名, キーがテンプレート側で参照する変数名)でテンプレートに取得したデータを渡す。
-        // どのファイルを表示するか？どの値をそれに渡すか？
+        // どのファイル(今回はtasks/index.blade.php)を表示するか？どの値をそれに渡すか？
         return view('tasks/index', [
             'folders' => $folders,
             'current_folder_id' => $id,
