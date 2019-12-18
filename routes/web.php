@@ -23,3 +23,8 @@ Route::post('/folders/create', 'FolderController@create');
 Route::get('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');
 //タスク作成処理を実行
 Route::post('/folders/{id}/tasks/create', 'TaskController@create');
+
+// タスク編集ページの表示
+Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
+// タスク編集処理の実行
+Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');

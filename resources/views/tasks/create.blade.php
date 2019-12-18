@@ -2,9 +2,8 @@
 @extends('layout')
 
 <!-- layout.blade.phpのyield 'styles'に対応 -->
-@section('styles')
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+@section('scripts')
+  @include('share.flatpickr.styles')
 @endsection
 
 <!-- layout.blade.phpのyield 'content'に対応 -->
@@ -45,13 +44,5 @@
 
 <!-- layout.blade.phpのyield 'scripts'に対応 -->
 @section('scripts')
-  <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-  <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-  <script>
-    flatpickr(document.getElementById('due_date'), {
-      locale: 'ja',
-      dateFormat: "Y/m/d",
-      minDate: new Date()
-    });
-  </script>
+  @include('share.flatpickr.scripts')
 @endsection
