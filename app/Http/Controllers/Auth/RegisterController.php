@@ -28,7 +28,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // 登録成功後のリダイレクト先をHPに
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,10 +49,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // make(検証するデータ,ルール定義,メッセージ定義,項目名定義)
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ], [], [
+            'name' => 'ユーザー名',
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
         ]);
     }
 

@@ -28,3 +28,10 @@ Route::post('/folders/{id}/tasks/create', 'TaskController@create');
 Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
 // タスク編集処理の実行
 Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
+
+// ホームページ
+Route::get('/', 'HomeController@index')->name('home');
+
+// 認証
+// 以下のメソッドで会員登録、ログイン、ログアウト、パスワード再設定の各機能で必要なルーティング設定を全て定義
+Auth::routes();

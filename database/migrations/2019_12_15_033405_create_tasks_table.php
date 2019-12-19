@@ -23,7 +23,7 @@ class CreateTasksTable extends Migration
             $table->timestamps();
 
             // 外部キーを設定する
-            // タスクテーブルのfolder_id列には列には実在するフォルダのidしか入れない(整合性を保つ)
+            // タスクテーブルのfolder_id列には実在するフォルダのidしか入れない(整合性を保つ)
             $table->foreign('folder_id')->references('id')->on('folders');
         });
     }
