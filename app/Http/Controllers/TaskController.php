@@ -7,14 +7,15 @@ use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     // 引数にルーティングで定義した波カッコ内の値を指定してidをURLから受け取り
     public function index(int $id)
     {
-        // Folderモデルのallクラスメソッドで全てのフォルダデータをdbから取得　
-        $folders = Folder::all();
+        // ユーザーのフォルダを取得する
+        $folders = Auth::user()->folders()->get();
 
         // 選ばれたフォルダを取得する
         // FolderテーブルからIDカラム(プライマリキー)が$idの行のデータを取得

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Folder;
 use Illuminate\Http\Request;
@@ -24,8 +25,8 @@ class FolderController extends Controller
         // タイトルに入力値を代入
         $folder->title = $request->title;
 
-        // インスタンスの状態をデータベースに書き込む
-        $folder->save();
+        // ★ ユーザーに紐づけて保存
+        Auth::user()->folders()->save($folder);
 
         // その後、tasks.indexルートをリダイレクト先に指定
         return redirect()->route('tasks.index', [

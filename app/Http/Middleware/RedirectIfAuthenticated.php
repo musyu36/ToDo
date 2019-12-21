@@ -18,7 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            // このミドルウェアはユーザが認証済みであればコントローラなどの後続のプログラムに処理を渡さずリダイレクトする
+            return redirect('/');
         }
 
         return $next($request);
