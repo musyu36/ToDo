@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // モデルクラスとポリシークラスの紐付け(Folderモデルに対する処理への認可にはFolderPolicyポリシーを使用する)
+        Folder::class => FolderPolicy::class,
     ];
 
     /**

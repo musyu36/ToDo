@@ -30,7 +30,7 @@ class FolderController extends Controller
 
         // その後、tasks.indexルートをリダイレクト先に指定
         return redirect()->route('tasks.index', [
-            'id' => $folder->id,
+            'folder' => $folder->id,
         ]);
 
     }

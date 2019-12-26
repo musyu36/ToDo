@@ -17,7 +17,7 @@
             <!-- 二重括弧で変数展開 -->
             <!-- laravelのroute関数ルート名、URLの変数部分に埋める変数を渡す -->
               <a
-                  href="{{ route('tasks.index', ['id' => $folder->id]) }}"
+                  href="{{ route('tasks.index', ['folder' => $folder->id]) }}"
                   class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}"
               >
               {{$folder->title}}
@@ -32,7 +32,7 @@
           <div class="panel-heading">タスク</div>
           <div class="panel-body">
             <div class="text-right">
-              <a href="{{ route('tasks.create', ['id' => $current_folder_id]) }}" class="btn btn-default btn-block">
+              <a href="{{ route('tasks.create', ['folder' => $current_folder_id]) }}" class="btn btn-default btn-block">
                 タスクを追加する
               </a>
             </div>
@@ -56,7 +56,7 @@
                   </td>
                   <!-- taskクラスのgetFormattedDueDateAttributeメソッドを呼び出す -->
                   <td>{{ $task->formatted_due_date }}</td>
-                  <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
+                  <td><a href="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}">編集</a></td>
                 </tr>
               @endforeach
             </tbody>
