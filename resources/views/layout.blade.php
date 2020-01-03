@@ -13,7 +13,7 @@
   <nav class="my-navbar">
     <a class="my-navbar-brand" href="/">ToDo App</a>
     <div class="my-navbar-control">
-    <!-- Auth:chackでログイン状態をチェック -->
+    <!-- Auth:checkでログイン状態をチェック -->
       @if(Auth::check())
       <!-- Auth:userでログイン中のユーザを取得、返り値はUserモデルのインスタンス、コントローラなどでも使用可能 -->
         <span class="my-navbar-item">ようこそ, {{ Auth::user()->name }}さん</span>

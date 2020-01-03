@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         // tasks/create.blade.phpにfolder_idを渡す,この値を使ってURL , /folders/{id}/tasks/createを作る
         return view('tasks/create', [
-            'folder_id' => $id
+            'folder_id' => $folder->id,
         ]);
     }
 
